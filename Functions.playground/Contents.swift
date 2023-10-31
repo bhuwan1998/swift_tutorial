@@ -41,6 +41,33 @@ myCustomAdd(20, 30)
 // this can be handy where you want to provide flexibility to the caller
 // its not about adding two values specifically, it's about indicating that the result of a funciton
 
+// external with and internal value
+func doSomethingComplicated(with value: Int) ->Int {
+    func mainLogic(value: Int) -> Int{
+        value + 2
+    }
+    
+    return mainLogic(value: value+3)
+}
+
+// first adds + 3 as an arg to the mainLogic func and mainLogic func adds another +2 thus in total +5
+doSomethingComplicated(with: 30)
+
+
+func getFullName(
+    firstName: String = "foo",
+    lastName: String = "Bar"
+) -> String {
+    "\(firstName) \(lastName)"
+}
+
+getFullName()
+
+getFullName(firstName: "Baz")
+getFullName(lastName: "Bansal")
+getFullName(firstName: "Bhuwan", lastName: "Bansal")
+
+
 
 
 
