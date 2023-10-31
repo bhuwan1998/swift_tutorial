@@ -42,11 +42,36 @@ let oldArray = NSMutableArray(
     array: [
         "Foo",
         "Bar"
-        
     ]
 )
 
 
 oldArray.add("Bax")
 
-var newArray = oldArray // not sure if this is mutable or not as of now 
+var newArray = oldArray // old array is mutable now so any changes made to newArray also affects oldArray
+newArray.add("Qux")
+oldArray
+newArray
+
+let someNames = NSMutableArray(
+    array: [
+        "Foo",
+        "Bar"
+    ]
+) // reasigning values to this let still holds true if you want to
+// change it like var in terms of its data structure or data
+
+
+
+
+// NSMutableArray - is a variant of NSArray
+func changeTheArray(_ array: NSArray){
+    // internally we can still copy as a mutable array
+    // do not use this too often
+    let copy = array as! NSMutableArray // promoting its datatype to mutable array and not copying
+    // demonstration purposes only
+    copy.add("Baz")
+}
+
+changeTheArray(someNames)
+someNames
